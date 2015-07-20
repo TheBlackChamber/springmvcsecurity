@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.theblackchamber.crypto.providers.digest.WhirlpoolDigestProvider;
+import net.theblackchamber.springmvcsecurity.dao.UserDao;
+import net.theblackchamber.springmvcsecurity.dao.model.User;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,7 +19,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DbAuthenticationProvider implements AuthenticationProvider {
 
-	// TODO insert DAO.
+	@Autowired
+	private UserDao userDao;
 
 	private WhirlpoolDigestProvider hashProvider = new WhirlpoolDigestProvider();
 	
@@ -29,16 +33,18 @@ public class DbAuthenticationProvider implements AuthenticationProvider {
 		// hash password
 		String hashedPass = hashProvider.digest(password);
 		
-		List<String> permissions = authenticate(name, hashedPass);
+		User dbUser = authenticate(name, hashedPass);
 
 		// If user has permissions then add them to the granted authorities
-		if (!permissions.isEmpty()) {
+		if (dbUser != null) {
 			List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
 
+			List<String> roles = dbUser.getRoles();
+			
 			// Populate granted auths from DB permissions
-			for (String permission : permissions) {
+			for (String permission : roles) {
 
-				grantedAuths.add(new SimpleGrantedAuthority(permission));
+				grantedAuths.add(new SimpleGrantedAuthority("ROLE_" + permission));
 
 			}
 
@@ -58,24 +64,15 @@ public class DbAuthenticationProvider implements AuthenticationProvider {
 
 	/**
 	 * Method which will authenticate a user against the database and return the
-	 * users list of permissions.
+	 * database user.
 	 * 
 	 * @param username
 	 * @param password
 	 * @return
 	 */
-	private List<String> authenticate(String username, String password) {
+	private User authenticate(String username, String password) {
 		
-		List<String> permissions = new ArrayList<String>();
-		
-		// TODO See if users is in DB with hashed password
-
-		// TODO populate permissions from database
-		//NOTE: the ROLE_ is really important here!!!
-		permissions.add("ROLE_USER");
-
-		// Return list of users permissions
-		return permissions;
+		return userDao.getUser(username, password);
 
 	}
 

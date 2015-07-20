@@ -13,7 +13,8 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "net.theblackchamber.springmvcsecurity.controller",
-		"net.theblackchamber.springmvcsecurity.security" })
+		"net.theblackchamber.springmvcsecurity.security",
+		"net.theblackchamber.springmvcsecurity.dao" })
 @Import({ SecurityConfig.class })
 public class AppConfig extends WebMvcConfigurerAdapter {
 
