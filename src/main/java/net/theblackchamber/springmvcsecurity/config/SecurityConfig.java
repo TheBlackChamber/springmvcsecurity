@@ -1,5 +1,7 @@
 package net.theblackchamber.springmvcsecurity.config;
 
+import net.theblackchamber.springmvcsecurity.security.DbAuthenticationProvider;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,12 +15,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
+	private DbAuthenticationProvider authenticationProvider;
+	
+	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.inMemoryAuthentication().withUser("blackchamber").password("123456")
-				.roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("123456")
-				.roles("ADMIN");
+		auth.authenticationProvider(authenticationProvider);
+//		auth.inMemoryAuthentication().withUser("blackchamber").password("123456")
+//				.roles("USER");
+//		auth.inMemoryAuthentication().withUser("admin").password("123456")
+//				.roles("ADMIN");
+		
 	}
 
 	@Override

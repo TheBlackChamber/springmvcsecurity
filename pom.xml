@@ -181,6 +181,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>net.theblackchamber</groupId>
+			<artifactId>commons-encryption</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
