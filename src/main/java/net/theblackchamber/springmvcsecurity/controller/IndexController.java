@@ -16,7 +16,7 @@ public class IndexController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home() {
-		log.info("THIS IS THE INJECTED LOGGER!!!");
+		log.debug("Returning Index Page");
         return new ModelAndView("index");
     }	
 	
