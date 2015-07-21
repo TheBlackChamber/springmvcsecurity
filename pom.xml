@@ -11,9 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-version>1.7</java-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<jackson.version>1.9.13</jackson.version>
-		<hibernate.validator.version>4.2.0.Final</hibernate.validator.version>
 		<org.springframework-version>4.1.7.RELEASE</org.springframework-version>
 		<org.springsecurity-version>4.0.1.RELEASE</org.springsecurity-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
@@ -21,26 +19,7 @@
 
 
 	<dependencies>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.180</version>
-		</dependency>
-		<dependency>
-			<groupId>org.elasticsearch</groupId>
-			<artifactId>elasticsearch</artifactId>
-			<version>1.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20140107</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>1.19</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -88,19 +67,11 @@
 			<version>${jackson.version}</version>
 		</dependency>
 
-		<!-- apache -->
-		<dependency>
-			<groupId>net.sf.dozer</groupId>
-			<artifactId>dozer</artifactId>
-			<version>5.4.0</version>
-		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
