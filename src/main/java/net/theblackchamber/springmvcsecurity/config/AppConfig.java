@@ -1,5 +1,7 @@
 package net.theblackchamber.springmvcsecurity.config;
 
+import net.theblackchamber.springmvcsecurity.utils.LoggerInjector;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -33,4 +35,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		return viewResolver;
 	}
 
+	@Bean
+	public LoggerInjector loggerInjector(){
+		return new LoggerInjector();
+	}
+	
 }
