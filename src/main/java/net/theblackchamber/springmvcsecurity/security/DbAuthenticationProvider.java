@@ -5,7 +5,7 @@ import java.util.List;
 
 import net.theblackchamber.crypto.providers.digest.WhirlpoolDigestProvider;
 import net.theblackchamber.springmvcsecurity.dao.UserDao;
-import net.theblackchamber.springmvcsecurity.dao.model.User;
+import net.theblackchamber.springmvcsecurity.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;

@@ -1,4 +1,4 @@
-package net.theblackchamber.springmvcsecurity.dao.model;
+package net.theblackchamber.springmvcsecurity.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

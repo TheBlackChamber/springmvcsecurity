@@ -3,7 +3,7 @@ package net.theblackchamber.springmvcsecurity.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.theblackchamber.springmvcsecurity.dao.model.User;
+import net.theblackchamber.springmvcsecurity.model.User;
 
 import org.springframework.stereotype.Repository;
 

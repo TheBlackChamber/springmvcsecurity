@@ -1,6 +1,6 @@
 package net.theblackchamber.springmvcsecurity.config;
 
-import net.theblackchamber.springmvcsecurity.utils.LoggerInjector;
+import net.theblackchamber.springmvcsecurity.annotations.injectors.LoggerInjector;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

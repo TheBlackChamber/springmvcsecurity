@@ -1,4 +1,4 @@
-package net.theblackchamber.springmvcsecurity.utils;
+package net.theblackchamber.springmvcsecurity.annotations.injectors;
 /**
  * Auto injects the underlying implementation of logger into the bean with field
  * having annotation <code>Logger</code>.
